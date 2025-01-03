@@ -1,0 +1,22 @@
+name: 'AI PR Summarizer'
+description: 'Automatically summarizes pull requests using OpenAI 4o-mini.'
+author: 'Pierre Gode'
+
+runs:
+  using: 'docker'
+  image: 'ghcr.io/Pierre-Gode/ai-pr-pipeline:latest'
+  args:
+    - ${{ inputs.GITHUB_TOKEN }}
+    - ${{ inputs.OPENAI_API_KEY }}
+
+inputs:
+  GITHUB_TOKEN:
+    description: 'GitHub token with repo permissions'
+    required: true
+  OPENAI_API_KEY:
+    description: 'OpenAI API key'
+    required: true
+
+branding:
+  icon: 'robot'
+  color: 'blue'
